@@ -1,0 +1,104 @@
+.main1{
+    background-color: white;
+}
+#img1{
+    height:100px;
+}
+.error1{
+    background-color: rgb(215, 151, 13);
+    font-size: 17px;
+    line-height: 1.3;
+    border-radius: 5px;
+    height:70px;
+    align-items: center;
+    font-weight: 500;
+    color:black;
+}
+input#password{
+    color:black;
+}
+.msg-a{
+    font-size: 12px;
+    font-weight: 500;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+#msg-a{
+    margin-top: 30px;;
+}
+#msg-b{
+    line-height: 1.3;
+}
+#msg-d{
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 17px;
+    font-weight: 650;
+}
+#msg-c{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+#msg-e{
+    text-decoration: none;
+}
+#sign-in{
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    color:rgb(0, 0, 0);
+    width:100%;
+    align-content: center;
+    height:40px;
+    font-size: 19px;
+    font-weight: 700;
+    padding-right: 0px;
+}
+#sign-btn{
+    height:60px;
+    font-size: 30px;
+}
+.fields3{
+    margin-top: 20px;
+}
+
+.password{
+    border: 1px solid rgb(164, 163, 163);
+    background-color: white;
+}
+.box{
+    margin-top: 0px;
+    height:650px;
+    background-color: white;
+}
+.inner-box{
+    margin-top: 10px;
+    height:90%;
+    width:100%
+}
+.header{
+   border-bottom: 1px solid rgb(193, 193, 193);
+}
+.btm{
+    margin-top: 30px;
+    border-top: 1px solid rgb(210, 209, 209);
+    background-color:rgb(232, 232, 232)
+}
+#links,.links,#lang,#language{
+    text-decoration: none;
+    color:rgb(113, 113, 113)
+}
+.opt{
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-bottom: 20px;
+}
+
+@media(max-width:500px){
+    #img1{
+        height:60px;
+    }
+    #sign-in{
+        width:100%;
+    }
+}

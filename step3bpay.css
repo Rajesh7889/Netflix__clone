@@ -1,0 +1,117 @@
+*{margin:0px;
+padding:0px;
+box-sizing: border-box;}
+.box{
+    height:1050px;
+}
+.crd-img{
+    width:35px;
+    height:32px;
+    padding:0px;
+    margin: 0px;
+}
+.entry{
+    border:1px solid rgb(171, 170, 170);
+    padding:10px;
+    margin-top: 5px;
+    height:70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2px;
+}
+/* .exp-dt, .cv{
+   
+} */
+.outr-dv{
+    margin:0px; 
+    padding:0px;
+}
+.cv{
+    margin-left:7%;
+}
+input{
+    width:100%;
+    height:30px;
+    margin:0px;
+   margin-bottom: 5px;
+   font-size: 15px;
+    font-weight: 400;
+    color:rgb(116, 116, 116);
+    border:none;
+}
+.msg{
+    margin:0px 0px 0px 10px;
+    font-size: 12px;
+    font-weight: 500;
+   display: none;
+} 
+.btm-msg{
+    border:none;
+    background-color: rgb(235, 233, 233);
+    padding:10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 650;
+    line-height: 1.2;
+}
+.btm-msg #b-msgg{
+    color:rgb(122, 121, 121)
+}
+#c-msgg{
+    text-decoration: none;
+}
+.terms{
+    margin-top: 15px;
+    line-height: 1.2;
+    font-size: 13px;
+    font-weight: 600;
+    color:rgb(152, 151, 151)
+
+}
+#ack-msg{
+    color:red;
+    font-size:18px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+#check{
+    margin-left: 13px;
+    width:30px;
+    height: 30px;
+    color:blue;
+    background-color: rgb(42, 71, 96);
+}
+.check{
+    width:40px;
+    height:40px;
+    padding:0px;
+}
+.chk-msg{
+    color:rgb(110, 110, 110);
+}
+.prtct-info{
+    font-size: 13px;
+    font-weight: 600;
+    color:rgb(152, 151, 151)
+}
+#crd-icn{
+    width:60%;
+    height:60%;
+    color:rgb(173, 171, 171);
+}
+#cvv-icn{
+    width:30px;
+    height:30px;
+    color:rgb(173, 171, 171);
+}
+.error{padding: 0px;
+    margin-left: 0px;
+    visibility: visible;}
+#error2{
+    margin-left:5px;
+}
+#error3{
+  margin-left: 20px;
+}

@@ -1,0 +1,70 @@
+.lock{
+    width:55px;
+    height:55px;
+    border:3px solid red;
+    border-radius: 50%;
+    color:red;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+   margin-left: 10px;
+}
+.lockicn{
+    width:40px;
+    height:40px;
+    padding: 0px;
+}
+#msg-enc{
+    font-size: 12px;
+   margin-bottom: 0px;
+    padding:0px;
+    text-align: end;
+}
+#secure-server-icon{
+    width:20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+#msg-c{
+    font-size: 18px;
+    font-weight: 700;
+}
+#msg-b{
+    font-size: 20px;
+}
+.paylinks{
+    border:1px solid rgb(190, 186, 186);
+    height:60px;
+   padding:15px;
+   font-size:17px;
+   border-radius: 5px;
+}
+#paylinks1{
+    border:1px solid red;
+    display: flex;
+}
+.crd-img{
+    width:30px;
+    margin-left: 3px;
+    padding:0px;
+    height:20px;
+}
+#paylinks2{
+    margin-top: 8px;
+    display: flex;
+}
+.txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@media(max-width:550px){
+    .txt{
+        
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+    }
+}

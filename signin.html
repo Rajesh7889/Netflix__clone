@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-in</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="signin.css">
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div class="container-fluid main">
+        <div class="row-fluid overlay">
+          <div class="row-1">
+            <div class="col-11 icon">
+                <img src="netflixicon.png" alt="">
+            </div>
+          </div>
+        
+        <div class="container-fluid box">
+            <div class="container  inner-box">
+                 <div class="row fields">
+                    <div class="col-12 sign-title">Sign In</div>
+                </div>
+                <div class="row fields error-bx">
+                  <div class="col-12  d-flex flex-column justify-content-center" >
+                      <span id="err-msg-bx">Sorry, we can't find an account with this email address. Please try again or <a id="link" href="step1.html">create a new account.</a></span>
+                   </div>
+          </div>
+                 <div class="row fields">
+                        <div class="col-12 email d-flex flex-column justify-content-center" >
+                            <span id="email-msg">Email address</span>
+                            <input type="text" id="email" placeholder="Email or phone number">
+                         </div>
+                    <span class="error" >please enter valide email address or phone number.</span>
+                </div>
+                 <div class="row fields">
+                    <div class="col-12 password d-flex flex-column justify-content-center" >
+                        <span id="password-msg">Password</span>
+                        <input type="password" id="password" placeholder="Password">
+                     </div>
+                    <span class="error1" >Your password must contain between 4 and 60 characters.</span>
+                </div>
+                 <div class="row fields ">
+                    <div class="col-12"> <button id="sign-btn">Sign In</button></div>
+                    <div class="row help">
+                        <div class="col-1 lft-msg"><input class="check " type="checkbox"> </div>
+                        <div class="col-3 lft-msg">Remember me</div>
+                        <div class="col-3 offset-5 rgt-msg">Need help?</div>
+                    </div>  
+                </div> 
+                <div class="row fields1">
+                    <p class="p1">New to Netflix?<b id="sign-page">Sign up now.</b></p>
+                    <p class="p2">This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+                    <a  id='a1' href="">Learn more</a>
+                </div>
+            </div>
+        </div>
+      <div class="container-fluid  btm">
+        <div class="container btm-cnt">
+             <div class="row-fluid">
+                <div class="col-11 " id="links">Questions? Call <u>000-800-919-1694</u>
+                </div>
+            </div>
+            <div class="row links">
+            
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">FAQ</a></div>
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">Help Center</a></div>
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">Privacy</a></div>
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">Cookie Preferences</a></div>
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">Corporate Information</a></div>
+                 <div class="col-lg-4 col-md-3 col-sm-6 col-6"><a href="" class="links">Contact Us</a></div>
+
+            
+           </div>
+           <div class="row-fluid opt">
+              <div class="col-6 d-flex justify-content-center" id='lang' >
+            <span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                 <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+               </svg>
+             </span>
+             <select name="language" id="language">
+                <option value="English"> English</option>
+                <option value="Hindi">Hindi</option>
+             </select>
+              </div>
+           </div>
+        </div>
+      </div>
+   </div>
+</div>
+<script>
+    $(document).ready(function(){
+             
+            //email box script..
+            $('.email').click(()=>{
+               mailmod($('#email-msg'),$('#email'));
+            })
+            //password box script..
+            $('.password').click(()=>{
+               mailmod($('#password-msg'),$('#password'));
+            });
+           
+            //register and next page link...
+            $('#sign-btn').click(()=>{
+              let chk_pswd =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{8,}$/;
+              let chk_eml =/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+              
+              let a=validated($('#email'),chk_eml,$('.email'),$('.error'));
+               let b=validated($('#password'),chk_pswd,$('.password'),$('.error1'));
+               if(a && b){
+                let records={
+                    eml:a,
+                    pswd:b
+                }
+                  saveRecords(records);
+               }
+            });
+           //pasword validation fxn...
+            $('select').click(()=>{
+                  alert('Yet this functionality is not available');
+            })
+
+             //sign up link..
+             $('#sign-page').click(()=>{
+                window.location.href='step1.html';
+             })
+             //input box modification function..
+             function mailmod(msg,emal){
+               msg.css('display','block');
+               emal.attr('placeholder','')
+            }
+
+          
+
+            // checking Records info..
+              function saveRecords(a,b){
+                let webtask = localStorage.getItem("accounts");
+             if(webtask == null){
+                 taskobj = [];
+             }else {
+                 taskobj = JSON.parse(webtask);
+             }
+             taskobj.push(records);
+             console.log(taskobj);
+             localStorage.setItem("details",JSON.stringify(taskobj));
+              }
+            //validation fxn...
+            function validated(field,Rexp,box,error){
+                let entry = field.val();
+                if(entry.match(Rexp)){ 
+                 box.css('border','1px solid green');  
+                 error.text('');
+                  return entry;
+                }else {
+                box.css('borderBottom','2px solid rgb(156, 102, 14)');  
+                error.css('visibility','visible');
+              }
+            }
+    })
+</script>
+</body>
+</html>

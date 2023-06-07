@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netflix</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="firstpage.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jquery.js"></script>
+    
+   </head>
+<body class="bg-dark ">
+  
+       <div class='container-fluid  d-flex justify-content-center'id="outer">
+        <div class=" container-fluid color-overlay d-flex justify-content-center align-items-center flex-column"> 
+            <div class="row d-flex justify-content-center align-items-center " id="header">
+                 <div class="col-4 offset-xl-1"><img src="netflixicon.png" alt="" class="icon "></div>
+                 <div class="col-4 offset-3">
+                      <div class="row sign-btn d-flex justify-content-center align-items-center">
+                        <div class="col-6 d-flex justify-content-center" id='lang' >
+                           <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                              </svg>
+                            </span>
+                            <select name="language" id="language">
+                               <option value="English"> English</option>
+                               <option id="hindi" value="Hindi">Hindi</option>
+                            </select>
+                        </div>   
+                        <div class="col-4">
+                            <input type="button" value="Sign in" id="sign-in"></div>
+                      </div>
+                </div>
+             </div>
+             <div class=" row-2 d-flex justify-content-center align-items-center flex-column"id='row-2'>
+                <div class="row row-2-dtl" id="msg-1 ">
+                    <div class="col-12" id="msg-1">
+                        <p >Unlimited movies, TV shows and more</p>
+                     </div>
+                </div>
+                <div class="row  row-2-dtl">
+                    <div class="col-12">
+                        <p id="msg-2">Watch anywhere. Cancel anytime.</p>
+                     </div>
+                </div>
+                <div class=" row  row-2-dtl d-flex justify-content-center align-items-center flex-column">
+                    <div class=" row row-2-1-msg ">
+                        <p id="msg-3">Ready to watch?<b class="msg-2"> Enter your email to create or restart your membership.</b></p>
+                    </div>
+                    <div class=" row  row-2-input   d-flex justify-content-center align-items-center flex-row ">
+                     <div class="col-sm-8">
+                     <div class="  email d-flex flex-column justify-content-center" >
+                           <span  id="email-msg">Email address</span>
+                           <input type="" id="email" placeholder="Email address" >
+                        </div>
+                        <span class="error d-flex ">
+                           <svg id='erroricon' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg><span id="errmsg">Email required</span>
+                           </span>
+                           </div>
+                       <div class="col-4 start d-flex justify-content-center align-items-end ">
+                           <button  id="start"> Get started<span class="glyphicon glyphicon-menu-right"></span></button>
+                           
+                       </div>
+                    </div>
+               </div>
+             </div>
+        </div>
+       </div>
+       <div class="outer-btm-dvs ">
+             <div class="row-fluid btm-dvs" id="r1" >
+                <div class="col-md-7 row-cntnrs float-md-start " id="c-1-1" >
+                   <div class="txt-msg">
+                      <p class="btm-msg1">Enjoy on your TV</p>
+                      <p class="btm-msg2">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                   </div>
+                </div>
+                <div class="col-md-5 row-cntnrs float-md-start" id="c-1-2">
+                   <img class='adds' src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+                 </div>
+             </div>
+       </div>
+       <div class="outer-btm-dvs ">
+             <div class="row-fluid btm-dvs" id="r2" >
+                <div class="col-md-7 row-cntnrs float-md-end" id="c-2-1" >
+                  <div class="txt-msg">
+                      <p class="btm-msg1 ">Download your shows to watch offline</p>
+                      <p class="btm-msg2">Save your favourites easily and always have something to watch.</p>
+                  </div>
+                </div>
+                <div class="col-md-5 row-cntnrs float-md-start img-div" id="c-2-2">
+                   <img class='adds' src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="outer-btm-dvs ">
+             <div class="row-fluid btm-dvs" id="r3" >
+                <div class="col-md-7  row-cntnrs float-md-start" id="c-3-1" >
+                   <div class="txt-msg">
+                      <p class="btm-msg1">Watch everywhere</p>
+                      <p class="btm-msg2">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                   </div>
+                </div>
+                 <div class="col-md-5  row-cntnrs float-md-end img-div" id="c-3-2">
+                      <img class='adds ' src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png" alt="">
+                 </div>
+             </div>
+        </div>
+        <div class="outer-btm-dvs ">
+             <div class="row-fluid btm-dvs" id="r4" >
+                <div class="col-md-7 row-cntnrs float-md-end" id="c-4-1" >
+                   <div class="txt-msg">
+                      <p class="btm-msg1">Create profiles for kids</p>
+                      <p class="btm-msg2">Send children on adventures with their favourite characters in a space made just for them free with your membership.</p>
+                   </div>
+                </div>
+                <div class="col-md-5 row-cntnrs float-md-start img-div" id="c-4-2">
+                      <img class='adds'  src="add.png" alt="">
+                </div>
+            </div>
+        </div><div class="mrgn"></div>
+  
+   <div class="container-fluid bg-black acrdin">
+        <div class="container accordion justify-content-center">
+             <div class="row text text-center">
+                <p class="btm-msg1">Fequently Asked Question</p>
+             </div>
+              <div class="accordion" id="netflix-fqa">
+                   <div class="card bg-black">
+                      <div class="card-header d-flex justify-content-center align-items-center p-0">
+                         <div class="col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse1'>What is Netflix?</div>
+                         <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                           <span class="close-icn">
+                              
+                           </span>
+                         </div>
+                        </div>
+                      <div id="myCollapse1" class='collapse' data-parent="#netflix-fqa">
+                         <div class="card-body bg-dark btm-msg2">
+                              Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more-on thouosands of internet-connected devices. <br><br>
+                              You can watch as much as you want, whenever you want, without a single ad- all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!
+                         </div>
+                      </div>
+                   </div>
+                   <div class="card bg-black">
+                     <div class="card-header d-flex justify-content-center align-items-center p-0">
+                        <div class="col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse2'>How much does netflix cost?</div>
+                        <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                           
+                        </div>
+                     </div>
+                     <div id="myCollapse2" class='collapse' data-parent="#netflix-fqa">
+                        <div class="card-body bg-dark btm-msg2">
+                           Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from 149 to 649 a
+                           month. No extra costs, no contracts.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card bg-black">
+                     <div class="card-header d-flex justify-content-center align-items-center p-0">
+                        <div class="col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse3'>Where can I watch?</div>
+                        <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                           
+                        </div>
+                     </div>
+                     <div id="myCollapse3" class='collapse' data-parent="#netflix-fqa">
+                        <div class="card-body bg-dark btm-msg2">
+                            Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer
+                            or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. <br><br>
+                            You can also download your favourite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection.
+                            Take Netflix with you anywhere.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card bg-black">
+                     <div class="card-header d-flex justify-content-center align-items-center p-0">
+                        <div class="col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse4'>How do I cancel?</div>
+                        <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                         
+                        </div>
+                     </div>
+                     <div id="myCollapse4" class='collapse' data-parent="#netflix-fqa">
+                        <div class="card-body bg-dark btm-msg2">
+                           Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees-start or stop your account anytime.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card bg-black">
+                     <div class="card-header d-flex justify-content-center align-items-center p-0">
+                        <div class=" col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse5'>What can I watch on Netflix?</div>
+                        <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                           
+                        </div>
+                     </div>
+                     <div id="myCollapse5" class='collapse' data-parent="#netflix-fqa">
+                        <div class="card-body bg-dark btm-msg2">
+                           Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytiime you want.
+                        </div>
+                     </div>
+                  </div>
+
+                   <div class="card bg-black">
+                      <div class="card-header d-flex justify-content-center align-items-center p-0">
+                         <div class="col-10 text-left acc-quest bg-dark btm-msg2" data-toggle="collapse" data-target='#myCollapse6'>Is Netflix good for kids?</div>
+                         <div class="col-2 text-left acc-quest bg-dark btm-msg2">
+                           <span class="plus-icn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                              </svg>
+                           </span>
+                         
+                         </div>
+                        </div>
+                      <div id="myCollapse6" class='collapse' data-parent="#netflix-fqa">
+                         <div class="card-body bg-dark btm-msg2">
+                            The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.<br><br>
+                            Kids profiles come with PIN-protected parental controls that let you restrict the ematurity rating of content kids can watch and block specific titles your don't want kids to see.
+                         </div>
+                      </div>
+                   </div>
+              </div>
+              <div class=" row  row-2-dtl btm-eml d-flex justify-content-center align-items-center flex-column ">
+               <div class=" row row-2-1-msg ">
+                   <p id="msg-3">Ready to watch?<b class="msg-2"> Enter your email to create or restart<br> your membership.</b></p>
+               </div>
+               <div class=" row  row-2-input2   d-flex justify-content-center align-items-center flex-row ">
+                   <div class="col-sm-8">
+                  <div class="   email2 d-flex flex-column justify-content-center" >
+                      <span  id="email-msg2" >Email address</span>
+                      <input type="text" id="email2" placeholder="Email address" >
+                   </div>
+                     <span class="error d-flex ">
+                     <svg id='erroricon' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                      </svg><span id="errmsg">Email required</span>
+                     </span>
+                  </div>
+                  <div class="col-4 start d-flex justify-content-center align-items-end ">
+                      <button  id="start2"> Get started<span class="glyphicon glyphicon-menu-right"></span></button>
+                  </div>
+               </div>
+          </div>
+       </div>
+
+   </div><div class="mrgn"></div>
+  
+   
+   <div class="container-fluid  all-links">
+               <div class="row">
+                   <div class="col-11" id="links">Questions? Call <u>000-800-919-1694</u>
+                   </div>
+              </div>
+              <div class="row links">
+                 <ul >
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">FAQ</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Help Center</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Account</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Media</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Invertor Relations</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Job</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Ways to Watch</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Terms of Use</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Privacy</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Cookie Preferences</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Corporate Information</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Contact Us</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Speed Test</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Legal Notices</a></li>
+                  <li class="col-lg-4 col-md-3 col-sm-6 col-xs-6"><a href="" class="links">Only on Netflix</a></li>
+                 </ul>
+             </div>
+          <div class="row-fluid opt">
+            <div class="col-6 d-flex justify-content-center" id='lang' >
+               <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                  </svg>
+                </span>
+                <select name="language" id="language">
+                   <option value="English"> English</option>
+                   <option id="hindi" value="Hindi">Hindi</option>
+                </select>
+            </div>
+          </div>
+          <div class="row-fluid opt "><div class="col-10">Netflix India</div></div>  
+           <div class="opt"></div>
+   </div>
+       
+       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+       <script>
+         $(document).ready(function(){
+              //sign-in page link..
+              $('#sign-in').click(()=>{
+               window.location.href='signin.html';
+            })
+            //email1 box script..
+            $('.email').click(()=>{
+               mailmod($('#email-msg'),$('#email'));
+            })
+            //email1 box script..
+            $('.email2').click(()=>{
+               mailmod($('#email-msg2'),$('#email2'));
+            });
+           
+            //email-1 validation and next page link...
+            $('#start').click(()=>{
+               emailvld($('#email'),$('.email'),$('.error'))
+            });
+             //email-1 validation and next page link...
+             $('#start2').click(()=>{
+               emailvld($('#email2'),$('.email2'),$('.error'))
+            });
+            $('select').click(()=>{
+                  alert('Yet this functionality is not available');
+            })
+             //accordion symbol..
+
+             //email box modification function..
+             function mailmod(msg,emal){
+               msg.css('display','block');
+               emal.attr('placeholder','')
+            }
+            //email validation function
+            function emailvld(email,box,error){
+               var eml = email.val();
+              let chk =/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+              if(eml.match(chk)){ 
+               box.css('border','1px solid green');  
+               error.text('');
+                   sessionStorage.setItem('email',`${eml}`);
+                   window.location.href='step1.html';
+                }else {
+                box.css('border','1px solid red');  
+                error.css('visibility','visible');
+              }
+            }
+          
+         })
+         
+       </script>   
+</body>
+</html>
