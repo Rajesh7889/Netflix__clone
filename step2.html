@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="signin.css">
     <link rel="stylesheet" href="step1.css">
     <link rel="stylesheet" href="step2.css">
-    
+    <script src="jquery.js"></script>
 </head>
 <body>
     <div class="container-fluid main1">
@@ -92,7 +92,13 @@
        </div>
         </div>
         </div>
-  
 </div>
+<script>
+    $(document).ready(()=>{
+        $('#sign-btn').click(()=>{
+            window.location.href='step2b.html';
+        })
+    })
+</script>
 </body>
 </html>

@@ -24,9 +24,9 @@
             </div>
           
         
-            <div class="container-fluid box">
+            <div class="container box">
            
-                <div class="container  inner-box">
+                <div class="container-fluid  inner-box">
                      <div class="row error1 d-flex">
                          <div class="col-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -34,8 +34,8 @@
                             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
                             </svg>
                          </div>
-                         <div class="col-10">
-                            Your message must contain between 4 and 60 characters.
+                         <div class="col-10 " id="eror-msg-top">
+                            Your message must contain between 4 and 60 characters<span id="hint"> (atleast 1 of [A_Z,a-z,0-9,@,#..])</span>.
                          </div>
                      </div>
                      <div class="row fields2" id="msg-a">
@@ -114,16 +114,51 @@
         $('.password').click(()=>{
                mailmod($('#password-msg'),$('#password'));
         });
-        //records..
+
         $('#sign-btn').click(()=>{
-           
-            let records={
+            signup();
+        })
+        //sign up function..
+            function signup(){
+            let records={   
             email:email,
             password: pswdVld($('#password'),$('.password'),$('.error'),$('.error1')),
-        }
-        
-        
-        })
+            plan:{
+                   type:'',
+                   cost:0,
+                 },
+            keepin:false,
+            status:''
+            }
+            if(records.password){
+            let retrived = localStorage.getItem("accounts");
+            let flag=0;
+             if(retrived== null){
+                 taskobj = [];flag=1;
+             }else {
+                 taskobj = JSON.parse(retrived);
+                 taskobj.forEach(element => {
+                     flag=1;console.log('lets match')
+                       if(element.email==records.email){flag=0;
+                         if(element.password==records.password){
+                            modifyCntnt();
+                            window.location.href='step2.html';
+                           }
+                        }
+                 });
+             }
+             if(flag){ console.log('match not found')
+               taskobj.push(records);
+               localStorage.setItem("accounts",JSON.stringify(taskobj));
+               
+               modifyCntnt();
+               window.location.href='step2.html';
+             }
+            }}
+            //after creation of account..
+            function modifyCntnt(){
+                $('.fields3').css('display','none');
+            }
         
            //password box modification function..
            function mailmod(msg,emal){
@@ -147,6 +182,7 @@
                 }else {
                 box.css('border','1px solid red');  
                 error2.css('visibility','visible');
+                return 0;
               }
             }
     })

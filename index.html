@@ -322,19 +322,21 @@
        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
        <script>
          $(document).ready(function(){
+            
               //sign-in page link..
               $('#sign-in').click(()=>{
                window.location.href='signin.html';
             })
             //email1 box script..
             $('.email').click(()=>{
+               $('.email').css('outline','invert');
                mailmod($('#email-msg'),$('#email'));
             })
             //email1 box script..
             $('.email2').click(()=>{
                mailmod($('#email-msg2'),$('#email2'));
             });
-           
+              
             //email-1 validation and next page link...
             $('#start').click(()=>{
                emailvld($('#email'),$('.email'),$('.error'))
@@ -361,12 +363,29 @@
                box.css('border','1px solid green');  
                error.text('');
                    sessionStorage.setItem('email',`${eml}`);
-                   window.location.href='step1.html';
+                   checkRecords(eml);
                 }else {
                 box.css('border','1px solid red');  
                 error.css('visibility','visible');
               }
-            }
+            }  // checking Records info..
+              function checkRecords(eml){
+                    let retrived = localStorage.getItem("accounts");
+                    if(retrived == null){
+                     window.location.href='welcome.html';
+                    }else {
+                       taskobj = JSON.parse(retrived);
+                       taskobj.forEach(element => {
+                       if(element.email==eml ){
+                          window.location.href='step1.html';
+                         }else{
+                           window.location.href='welcome.html';
+                         }
+                       });
+                    }
+              }
+
+
           
          })
          

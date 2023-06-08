@@ -37,6 +37,11 @@
 #select-head{
     margin-top: 10px;
 }
+img#img1{
+    width:180px;
+    height:100px;
+    margin-left: 10px;
+}
 #close{
     display:none;
 }
@@ -50,7 +55,7 @@ img{
     border-radius: 3px;
     background-color:white;
     border: 1px solid rgb(161, 160, 160);
-    display: none;
+    
 }
 .option{
     align-items: center;

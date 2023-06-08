@@ -1,0 +1,10 @@
+.regStepLogo {
+    background: url(https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Devices.png) no-repeat 50% 50%;
+    background-size: 260px;
+    height: 90px;
+}
+.inner-box,.box{
+    text-align: center;
+    margin-top: 100px;
+    height:570px
+}

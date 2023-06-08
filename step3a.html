@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="signin.css">
     <link rel="stylesheet" href="step1.css">
     <link rel="stylesheet" href="step3a.css">
-    
+    <script src="jquery.js"></script>
 </head>
 <body>
     <div class="container-fluid main1">
@@ -29,10 +29,8 @@
             <div class="container  inner-box">
                 <div class="txt ">
                 <div class="row ">
-                    <div class="col-1 lock">
-                        <svg id='lock'xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                          </svg>
+                    <div class="col-1 lock" >
+                        <img id='lock' src="	https://assets.nflxext.com/ffe/siteui/acquisition/simplicity/Lock.png" alt="" srcset="">
                     </div>
                 </div>
                  <div class="row fields2" id="msg-a">
@@ -115,7 +113,21 @@
        </div>
         </div>
         </div>
-  
 </div>
+<script>
+    $(document).ready(()=>{
+        $('#paylinks1').click(()=>{
+            window.location.href='step3bpay.html';
+        });
+        $('#paylinks2').click(()=>{
+            window.location.href='step3bpay2.html';
+        })
+        function change(){
+            for(let i=1;i<3;i++){
+                $(`#paylinks${i}`).css({'border':'1px solid rgb(90, 90, 90)','boxShadow':'0px 0px 2px 1px rgb(90, 90, 90)'});
+            }
+        }change();
+    })
+    </script>
 </body>
 </html>

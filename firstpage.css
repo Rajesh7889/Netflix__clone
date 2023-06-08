@@ -13,7 +13,7 @@ body{
 #outer{
        
         width:100% ;
-        min-height: 80vh;
+        min-height: 95vh;
         height:600px;
         background-image: url('Netflix-Background.jpg');
         background-size: cover;

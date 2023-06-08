@@ -25,7 +25,7 @@
                 </div>
                 <div class="row fields error-bx">
                   <div class="col-12  d-flex flex-column justify-content-center" >
-                      <span id="err-msg-bx">Sorry, we can't find an account with this email address. Please try again or <a id="link" href="step1.html">create a new account.</a></span>
+                      <span id="err-msg-bx">Sorry, we can't find an account with this email address. Please try again or <a id="link" href="index.html">create a new account.</a></span>
                    </div>
           </div>
                  <div class="row fields">
@@ -115,7 +115,7 @@
                     eml:a,
                     pswd:b
                 }
-                  saveRecords(records);
+                  checkRecords(records);
                }
             });
            //pasword validation fxn...
@@ -125,7 +125,7 @@
 
              //sign up link..
              $('#sign-page').click(()=>{
-                window.location.href='step1.html';
+                window.location.href='index.html';
              })
              //input box modification function..
              function mailmod(msg,emal){
@@ -136,16 +136,20 @@
           
 
             // checking Records info..
-              function saveRecords(a,b){
-                let webtask = localStorage.getItem("accounts");
-             if(webtask == null){
-                 taskobj = [];
-             }else {
-                 taskobj = JSON.parse(webtask);
-             }
-             taskobj.push(records);
-             console.log(taskobj);
-             localStorage.setItem("details",JSON.stringify(taskobj));
+              function checkRecords(records){
+                    let retrived = localStorage.getItem("accounts");
+                    if(retrived == null){
+                        $('.error-bx').css('display','block')
+                    }else {
+                       taskobj = JSON.parse(retrived);
+                       taskobj.forEach(element => {console.log(element);
+                       if(element.email==records.eml && element.password==records.pswd){
+                          alert('hello');
+                       }else{
+                        $('.error-bx').css('display','block');
+                       }
+                       });
+                    }
               }
             //validation fxn...
             function validated(field,Rexp,box,error){
