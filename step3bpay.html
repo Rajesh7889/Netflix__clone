@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="row-fluid">
-                        <div class="col-12 error " id="error1">Please enter a card number.</div>
+                        <div class="col-12 error " id="error1"></div>
                     </div>
                 </div>
                 <div class="row-fluid ">
@@ -64,10 +64,10 @@
                         <div class="col-6 p-0 m-0">
                            <div class="row entry entry-fields exp-dt d-flex flex-row align-items-center" id="exp-dt"> 
                                  <span class="col-12 msg" id="expr">Expiration date</span>
-                                 <input type="text" placeholder="Expiration date" class="entries"  id="expr-v">
+                                 <input type="month" placeholder="Expiration date " class="entries"  id="expr-v">
                            </div>
                            <div class="row-fluid">
-                                 <div class="col-12 error" id="error2">Please enter an expiration date.</div>
+                                 <div class="col-12 error" id="error2"></div>
                            </div>
                        </div>
                        <div class="col-6  outr-dv ">
@@ -87,7 +87,7 @@
                                  </div>
                              </div>
                              <div class="row-fluid">
-                                 <div class="col-12 error" id="error3">Please enter a cvv.</div>
+                                 <div class="col-12 error" id="error3"></div>
                              </div>
                        </div>
                     </div>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="row-fluid">
-                    <div class="col-12 error" id="error4">Please enter a valid first name.</div>
+                    <div class="col-12 error" id="error4"></div>
                 </div>
             </div>
             <div class="  p-0 m-0">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="row-fluid">
-                    <div class="col-12 error" id="error5">Please enter a valid last name.</div>
+                    <div class="col-12 error" id="error5"></div>
                 </div>
             </div>
                 <div class="row">
@@ -139,10 +139,10 @@
                     </p>
                 </div>
                 <div class="row d-flex align-items-center">
-                    <div  class="col-1 check"><input id='check' type="checkbox" value="true" ></div><div class="col-5 chk-msg"> <h4>I agree.</h4></div>
+                    <div  class="col-1 check"><input id='check' type="checkbox"  ></div><div class="col-5 chk-msg"> <h4>I agree.</h4></div>
                 </div>
                 <span id="ack-msg">
-                    <p>You must acknowledge that you have read and agree to the Terms of Use to continue.</p>
+                    <p></p>
                 </span>
                  <div class="row fields2 ">
                     <div class="col-12"> <button id="sign-btn">Start Membership</button></div> 
@@ -187,30 +187,67 @@
 </div>
 <script>
       $(document).ready(()=>{console.log('hello');
+      //accessing localstorage and session storage..
+        let retrived = JSON.parse(localStorage.getItem("accounts"));
+        let retrived1 =sessionStorage.getItem("email");
        //log-out..
        $('#sign-in').click(()=>{
         window.location.href='index.html';
        })
+
+         //feild styling..
          $('#crd-nm').click(()=>{
             boxMod($('#crd'),$('#crd-v'))
          })
-
+        //exp-dat...
+         
+            boxMod($('#expr'),$('#expr-v'));
+            $('#expr-v').css('display','none');
+         //after click..
          $('#exp-dt').click(()=>{
-            boxMod($('#expr'),$('#expr-v'))
-         })
+            $('#expr-v').css('display','block');
+         })   
+
          
          $('#cv').click(()=>{
             boxMod($('#cvvv'),$('#cvvv-v'))
          })
 
          $('#fnam').click(()=>{
-            boxMod($('#first'),$('#first-v'))
+            boxMod($('#first'),$('#first-v'
+            ))
          })
 
          $('#lnam').click(()=>{
-            boxMod($('#last'),$('#last-v'))
-         });
-         
+            boxMod($('#last'),$('#last-v'));
+           
+         })
+         $('#sign-btn').click(()=>{console.log($('#check').is(':checked'))
+            check5($('#crd-v'), $('#error1'),16,'Card number');
+            check5($('#cvvv-v'),$('#error3'),3,'CVV')
+            check2();
+            check1($('#first-v'),$('#error4'),'First name');
+            check1($('#last-v'),$('#error5'),'Last name');
+            let count=0;
+            for(let i=1;i<6; i++){
+                if($(`#error${i}`).text()==''){
+                   count++;
+                }
+            } 
+            if(($('#check').is(':checked'))){
+                if(count==5 ){
+                    retrived.forEach(element => {
+                       if(element.email==retrived1){
+                          element.plan.subscribed=true;
+                       }})
+                localStorage.setItem("accounts",JSON.stringify(retrived));       
+                window.location.href='mainpage.html'
+            }
+            }else {
+                $('#ack-msg').text('*You must acknowledge that you have read and agree to the Terms of Use to continue')
+            }
+         })
+        
          //input box modification function..
          function boxMod(msg,input){
                msg.css('display','block');
@@ -218,18 +255,51 @@
             }
           //displaying plan info..
           function plan(type,cost){
-            let retrived = JSON.parse(localStorage.getItem("accounts"));
-            let retrived1 =sessionStorage.getItem("email");
                        retrived.forEach(element => {console.log(element);
                        if(element.email==retrived1){
                           type.text(element.plan.type);
                           cost.text(element.plan.cost);
-                       }else{
-                        $('.error-bx').css('display','block');
                        }
                        });
           }  
           plan($('#type'),$('.cost'));
+
+          //validations...
+        //cvv and card number validation fxn....
+         function check5(input,err,lngth,msg){
+          let nmbr= input.val();
+          console.log(nmbr);
+          if( nmbr==''){
+           err.text(`*${msg} is required`);
+          }else if(isNaN(nmbr) || nmbr.length<lngth||nmbr.length>lngth){
+            err.text(`*Please enter valid ${msg}`);  
+          }else {
+           err.text(''); 
+          }   
+         }
+
+         //expiration date..
+         function check2(){
+            date= $('#expr-v').val();
+            if(date==''){
+                $('#error2').text('*please enter expiration date..');
+            }else{
+                $('#error2').text('');
+            }
+         }
+        //name validation...
+       function check1(NAM,error,nm){
+       let name=NAM.val();
+       let chk=/^[A-Za-z]+$/;
+       if(name ==''){
+        error.text(`*Please enter  ${nm}`);
+       }else if(name.match(chk) && name.length>2){
+         error.text('');
+       }else {
+        error.text(`*Please enter valid ${nm}`);
+       }
+      }
+
     })
 </script>
 </body>

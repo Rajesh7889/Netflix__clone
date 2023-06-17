@@ -20,10 +20,9 @@ box-sizing: border-box;}
     justify-content: center;
     border-radius: 2px;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 1px rgb(174, 174, 174);
 }
-/* .exp-dt, .cv{
-   
-} */
+
 .outr-dv{
     margin:0px; 
     padding:0px;
@@ -113,7 +112,7 @@ input[type=checkbox]{
 }
 .error{padding: 0px;
     margin-left: 0px;
-    visibility: hidden;}
+    visibility: visible;}
 #error2{
     margin-left:5px;
 }
@@ -123,4 +122,7 @@ input[type=checkbox]{
 .entries{
     margin-left: 5px;
     color:rgb(0, 0, 0);
+}
+#ack-msg{
+    font-size: 15px;
 }

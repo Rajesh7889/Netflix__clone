@@ -35,7 +35,7 @@
                             </svg>
                          </div>
                          <div class="col-10 " id="eror-msg-top">
-                            Your message must contain between 4 and 60 characters<span id="hint"> (atleast 1 of [A_Z,a-z,0-9,@,#..])</span>.
+                            Your message must contain between 8 and 60 characters<span id="hint"> (atleast 1 of [A_Z,a-z,0-9,@,#..])</span>.
                          </div>
                      </div>
                      <div class="row fields2" id="msg-a">
@@ -126,6 +126,7 @@
             plan:{
                    type:'',
                    cost:0,
+                   subscribed:false,
                  },
             keepin:false,
             status:''
@@ -141,8 +142,16 @@
                      flag=1;console.log('lets match')
                        if(element.email==records.email){flag=0;
                          if(element.password==records.password){
-                            modifyCntnt();
+                            if(element.plan.subscribed==true){
+                           modifyCntnt();
+                            window.location.href='mainpage.html';
+                          }else{
                             window.location.href='step2.html';
+                          }
+                           }else{
+                            $('.error').css('visibility','visible');
+                            $('.error').text('*wrong password');
+                            $('.password').css('border','1px solid red'); 
                            }
                         }
                  });

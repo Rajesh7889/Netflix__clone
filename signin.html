@@ -144,7 +144,12 @@
                        taskobj = JSON.parse(retrived);
                        taskobj.forEach(element => {console.log(element);
                        if(element.email==records.eml && element.password==records.pswd){
-                          alert('hello');
+                        sessionStorage.setItem('email',`${records.eml}`);
+                        if(element.plan.subscribed==true){
+                            window.location.href='mainpage.html';
+                          }else{
+                            window.location.href='step2.html';
+                          };
                        }else{
                         $('.error-bx').css('display','block');
                        }

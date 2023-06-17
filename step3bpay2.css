@@ -55,6 +55,7 @@ img{
     border-radius: 3px;
     background-color:white;
     border: 1px solid rgb(161, 160, 160);
+    display:none;
     
 }
 .option{
