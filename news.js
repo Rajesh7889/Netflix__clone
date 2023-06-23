@@ -1,33 +1,34 @@
-export let a="hello";
-export let key='77d3a9a44835177590d6fda42991e44e';
-export const baseUrl='https://api.themoviedb.org/3';
-export const options = {
+
+//import {a}from"./script2.js";
+
+let key='77d3a9a44835177590d6fda42991e44e';
+ const baseUrl='https://api.themoviedb.org/3';
+ const options = {
           method: 'GET',
           headers: {
                      accept: 'application/json',
                      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2QzYTlhNDQ4MzUxNzc1OTBkNmZkYTQyOTkxZTQ0ZSIsInN1YiI6IjY0NzU2ZjBjYzI4MjNhMDBjNDIxNzFjMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XXCQz5IO_7qSJQWCO6dWKi0SzDe17Y8Yw8j4udPEppk'
                    }
          };
-export  const apiPaths={
+  const apiPaths={
                 fetchAllCategories:`${baseUrl}/genre/movie/list?api_key=${key}`,
                 fetchTrending:`${baseUrl}/trending/movie/day?api_key=${key}`,
                 fetchLatest:`${baseUrl}/movie/latest?api_key=${key}`,
                 fetchTopRated:`${baseUrl}/movie/top_rated?api_key=${key}`,
-                fetchById:(id)=>{`https://api.themoviedb.org/3/movie/959108/videos?api_key=let key='77d3a9a44835177590d6fda42991e44e';`},
                 fetchSimilarMovies:(id)=>{`${baseUrl}/movie/${id}/similar?api_key=${key}`},
                 fetchList:(id)=>`${baseUrl}/discover/movie?api_key=${key}&with_genres=${id}`,
                 imgPath:`https://image.tmdb.org/t/p/original`,
                  movieTrailerUrl:(mviQuery,title)=>`${baseUrl}/movie/${mviQuery}/videos?language=${title}`,
         }
 
-export  function load(){
+  function load(){
              trendingMovies();//banner...
              allcategoriesMovies(apiPaths.fetchTopRated,"Top Rated");
              allCategories();
         }
 
 //creating random movie for banner background..../
-export   function trendingMovies(){
+   function trendingMovies(){
               allcategoriesMovies(apiPaths.fetchTrending,"Trending Now")
                 .then(List=>{
                              const ranInd=parseInt(Math.random()*(List.length))
@@ -36,7 +37,7 @@ export   function trendingMovies(){
           }
 
 //banner information....
-export    async function bannerSection(movie){
+    async function bannerSection(movie){
              await fetch( apiPaths.movieTrailerUrl(movie.id,movie.original_title),options)
                     .then(res=>res.json())
                     .then(res=>{
@@ -44,9 +45,8 @@ export    async function bannerSection(movie){
                             const bnr=document.getElementById('bnr-cnt');
                             bnr.style.backgroundImage=`url(${apiPaths.imgPath}${movie.backdrop_path})`;
                             let mvi=`https://www.youtube.com/embed/${res.results[0].key}`;
-      
                             setTimeout(()=>document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1&mute=1`,3000); 
-                           document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1&mute=1`; 
+                         setInterval(()=>  document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1&mute=1`,30000); 
                             const div=document.createElement('div');
                             div.innerHTML=` 
                                           <div class="banner-fadeTop"></div>
@@ -66,12 +66,12 @@ export    async function bannerSection(movie){
 
 
 //fetching all type of moveies.....
-export   function allCategories(){
+   function allCategories(){
                    fetch(apiPaths.fetchAllCategories)
                    .then(res=>res.json()).then(res=>{
                                    const categories=res.genres;
                                    if(Array.isArray(categories) && categories.length){
-                                           categories.forEach.slice(0,3)(category=>{
+                                           categories.forEach(category=>{
                                                  allcategoriesMovies(apiPaths.fetchList(category.id),category.name);
                                             })   
                                    }
@@ -83,12 +83,12 @@ export   function allCategories(){
 
 
     //creating list of all movies according to their types...
-export   function allcategoriesMovies(Url,categoryName){
+   function allcategoriesMovies(Url,categoryName){
                        return fetch(Url)
                  .then(res=>res.json()).then(res=>{
                           const movies=res.results;
                          if(Array.isArray(movies) && movies.length){
-                              buildMoviesSection(movies.slice(0,3),categoryName);
+                              buildMoviesSection(movies,categoryName);
                          return movies;
                   }
                  }).catch(err=>console.log(err));
@@ -103,7 +103,7 @@ export   function allcategoriesMovies(Url,categoryName){
             const movielist=await moviesList.map(item=>{
               
               return `
-                      <div class='movie-item'  onmouseenter="movieTrailer('${item.id}','${item.title}','yt${item.id}','y${item.id}')">
+                      <div class='movie-item'  onmouseenter="movieTrailer('${item.id}','${item.title}','yt${item.id}','y${item.id}','yyt${item.id}')">
                               <img class="movie-item-img" src="${apiPaths.imgPath}${item.backdrop_path}" alt="${item.title}">
                               <div id='titl'>'${item.title}'</div>
                               <div class="mvi-play"  onmouseleave="stop('yt${item.id}')"> 
@@ -114,8 +114,8 @@ export   function allcategoriesMovies(Url,categoryName){
                                     <div id='volume'><i class="bi bi-volume-up"></i></div>
                                     <div id='details'> 
                                          <div id='play'>
-                                             <i class="bi bi-play-circle-fill"></i>
-                                             <i class="bi bi-plus-circle" onclick="saveInfo('${item.id}','${item.title}','${item.backdrop_path}')"></i>
+                                             <i class="bi bi-play-circle-fill" id='yyt${item.id}' value=''></i>
+                                             <i id='p${item.id}' class="bi bi-plus-circle save" onclick="saveInfo('${item.id}','${item.title}','${item.backdrop_path}')"></i>
                                              <i class="bi bi-hand-thumbs-up"></i>
                                          </div>
                                          <div id='expnd' class='expnd'> 
@@ -148,23 +148,25 @@ export   function allcategoriesMovies(Url,categoryName){
           
         }
      
-export  async function movieTrailer(movieName,title,iframeId,imag){
+  async function movieTrailer(movieName,title,iframeId,imag,traileer){
             if(!movieName) return;
             await fetch( apiPaths.movieTrailerUrl(movieName,title),options)
             .then(res=>res.json())
             .then(res=>{ 
               let videoIdd=res.results[0].key;
               document.getElementById(imag).scr=`url("")`;
-             let youTubeUrl=`https://www.youtube.com/embed/${videoIdd}`;console.log(youTubeUrl)
+             let youTubeUrl=`https://www.youtube.com/embed/${videoIdd}`;
              setTimeout(()=>document.getElementById(imag).src=''),5000;
              document.getElementById(iframeId).src=`https://www.youtube.com/embed/${videoIdd}?autoplay=1&mute=1`;
-
+            document.getElementById(traileer).value=youTubeUrl;
+             return youTubeUrl;
             })
               .catch(err=>console.log(err));
 
  }
+ 
 
-export  function stop(iframeId){
+  function stop(iframeId){
            document.getElementById(iframeId).src=``;
         }
 
@@ -173,7 +175,7 @@ export  function stop(iframeId){
             load();
             window.addEventListener('scroll',()=>{
                const hdr=document.getElementById('header');
-               if(this.window.scroll>5){
+               if(this.window.scrollY>5){
                   hdr.classList.add('black-bg')
                }else hdr.classList.remove('black-bg');
             });
@@ -182,8 +184,8 @@ export  function stop(iframeId){
 
        
           
- //saving movies in savelist...
-export function saveInfo(a,b,c){
+ //saving and deleting if already saved  in savelist...
+ function saveInfo(a,b,c){
            let item = {
                         id:a,
                         title:b,
@@ -192,33 +194,55 @@ export function saveInfo(a,b,c){
          let retrived = JSON.parse(localStorage.getItem("accounts"));
          let retrived1 =sessionStorage.getItem("email");
          retrived.forEach(element => {
-                   if(element.email==retrived1){
+                     if(element.email==retrived1){
+                     let flag=1;
+
+                     for(i in element.moviesList){
+                            if(element.moviesList[i].id == item.id){
+                                 flag=0;
+                                element.moviesList.splice(i,1);
+                                localStorage.setItem("accounts",JSON.stringify(retrived));
+                                 return
+                              };
+                     }
+                       if(flag){ 
                         element.moviesList.push(item);
-                        localStorage.setItem("accounts",JSON.stringify(retrived));   
-                      }
-                  })
-  
+                        localStorage.setItem("accounts",JSON.stringify(retrived));
+                     }
+                  }
+            })
         }
 
 
  //basic functionalities.....       
-export   function functionalities(){
+   function functionalities(){
              $(document).ready(()=>{
                    var slider= document.getElementsByClassName('movies-row');
                    var item= document.getElementsByClassName('movie-item');
   
-                  setTimeout(()=>{ 
-                     var expnd=document.getElementsByClassName('expnd');
+                       setTimeout(()=>{ 
+
+                        let retrived = JSON.parse(localStorage.getItem("accounts"));
+                        let retrived1 =sessionStorage.getItem("email");
+                        console.log(retrived)
+                        console.log(retrived1)
+                         //changing icon..
+                         retrived.forEach(element => {console.log(element)
+                            if(element.email==retrived1){
+                            for(i in element.moviesList){
+                               let iid=element.moviesList[i].id;console.log(iid)
+                              $(`#p${iid}`).removeClass('bi-plus-circle');
+                              $(`#p${iid}`).addClass('bi-check-circle');
+                            }
+                         }})
+                       
                      let rowLength=(item.length/slider.length)*item[0].offsetWidth - screen.width;
                      let count=[];
                      for(let i=0;i<slider.length;i++){
                            count[i]=0;
-                           var btn1= document.getElementsByClassName('btn1');
-                           var btn0= document.getElementsByClassName('btn01');
-                           var plytn= document.getElementsByClassName('bi-play-circle-fill');
- 
+                  
                            //left to right slider..
-                           btn1[i].addEventListener('click',()=>{
+                           $('.btn1').eq(i).click(()=>{
                                  if(count[i]<0){
                                     count[i]=count[i] + screen.width/3;
                                     slider[i].style.left=`${count[i]}px`;
@@ -226,27 +250,46 @@ export   function functionalities(){
                            });
 
                             //right to left slider..
-                           btn0[i].addEventListener('click',()=>{
+                            $('.btn01').eq(i).click(()=>{
                               if(count[i]>-rowLength){
                                    count[i]=count[i] - screen.width/3;
                                    slider[i].style.left=`${count[i]}px`;
                                }
                             })
                       }
+                      var expnd=document.getElementsByClassName('expnd');
                       for(let j=0;j<expnd.length;j++){
                         // playing banner video ..
-                         plytn[j].addEventListener('click',moviePlay);
+                        $('.bi-play-circle-fill').eq(j).click(()=>{
+                           let uur= $('.bi-play-circle-fill').eq(j).val();
+                           $('#mvi-pg').attr('src',uur);
+                           moviePlay();
+                        })
+                       
                          //details...
-                         expnd[j].addEventListener('click',expand);
+                         $('.expnd').eq(j).click(expand);
+                         $('.save').eq(j).click(()=>{
+                           if($('.save').eq(j).hasClass('bi-plus-circle')){
+                              $('.save').eq(j).removeClass('bi-plus-circle');
+                              $('.save').eq(j).addClass('bi-check-circle');
+                           }else{
+                              $('.save').eq(j).removeClass('bi-check-circle');
+                              $('.save').eq(j).addClass('bi-plus-circle');
+                           }
+                        })
+
                        };
 
                         //playing movie..
-                           $('button#plly').click(moviePlay)
-                        //home link..
-                           $('#home').click(()=>{
-                                $('section').css('display','block');
-                                $('.ply').css('display','none')
+                           $('button#plly').click(()=>{
+                              $('#mvi-pg').attr('src',$('button#plly').val());
+                              moviePlay();
                            })
+                        //home link..
+                           // $('#home').click(()=>{
+                           //      $('section').css('display','block');
+                           //      $('.ply').css('display','none')
+                           // })
                         //info section...
                           $('button#info').click(()=>expand());
                         //closing details..
@@ -262,7 +305,6 @@ export   function functionalities(){
                                     $('#header').addClass('black-bg');
                                     $('section').css('display','none');
                                     $('.ply').css('display','block');
-                                    $('#mvi-pg').attr('src',$('button#plly').val());
                             }
                          //info display function..
                             function expand(){
@@ -271,7 +313,12 @@ export   function functionalities(){
                                    $(`.main`).css('position','fixed'); 
                                    $(`.bttm`).css('display','none');
                             }
-                          //navigations...
+                        //service-code..
+                        $('.s-code').click(()=>{
+                            $('#cod1').css('display','none');
+                            $('#cod2').css('display','block');
+                        })
+                        //navigations...
                          for(let i=0;i<6;i++){ 
                                    $('.nav-item').eq(i).click(()=>{
                                       if(i==0){
@@ -295,11 +342,11 @@ export   function functionalities(){
                                    })
                           }
     
-                  } ,3000);
+                    } ,3000);
                })
          }
    
   
- 
+         functionalities();
   
    

@@ -121,15 +121,17 @@
         //sign up function..
             function signup(){
             let records={   
-            email:email,
-            password: pswdVld($('#password'),$('.password'),$('.error'),$('.error1')),
-            plan:{
+                         email:email,
+                         password: pswdVld($('#password'),$('.password'),$('.error'),$('.error1')),
+                         plan:{
                    type:'',
                    cost:0,
                    subscribed:false,
                  },
-            keepin:false,
-            status:''
+                         keepin:false,
+                         status:'',
+                         moviesList:[],
+                         liked:[]
             }
             if(records.password){
             let retrived = localStorage.getItem("accounts");
@@ -144,7 +146,7 @@
                          if(element.password==records.password){
                             if(element.plan.subscribed==true){
                            modifyCntnt();
-                            window.location.href='mainpage.html';
+                            window.location.href='mn.html';
                           }else{
                             window.location.href='step2.html';
                           }

@@ -270,7 +270,7 @@
          for(let i=1; i<5; i++){
             $(`#box${i}`).click(()=>{
               for(let j=1;j<5;j++){
-               if(j==i && !$(`#box${i} .collapse`).hasClass('show')){
+               if(!$(`#box${i} .collapse`).hasClass('show')){
                   $(`#box${j} p#closebtn i`).removeClass('bi-chevron-compact-down');
                   $(`#box${j} p#closebtn i`).addClass('bi-chevron-compact-up');
                }else{
