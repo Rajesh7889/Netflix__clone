@@ -218,7 +218,7 @@ let key='77d3a9a44835177590d6fda42991e44e';
    function functionalities(){
              $(document).ready(()=>{
                $('.nav').click(()=>{
-                  if($('.main-nav1').css('display')=='none'){ 
+                  if($('.main-nav1').css('display','none')){ 
                      $('.main-nav1').css('display','block')
                   }else{
                      $('.main-nav1').css('display','none')

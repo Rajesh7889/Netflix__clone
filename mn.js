@@ -219,7 +219,7 @@
              $(document).ready(()=>{
              
                $('.nav').click(()=>{
-                  if($('.main-nav1').css('display')=='none'){ 
+                  if($('.main-nav1').css('display','none')){ 
                      $('.main-nav1').css('display','block')
                   }else{
                      $('.main-nav1').css('display','none')
