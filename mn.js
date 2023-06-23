@@ -44,8 +44,8 @@
                             const bnr=document.getElementById('bnr-cnt');
                             bnr.style.backgroundImage=`url(${apiPaths.imgPath}${movie.backdrop_path})`;
                             let mvi=`https://www.youtube.com/embed/${res.results[0].key}`;
-                            setTimeout(()=>document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1`,3000); 
-                            setInterval(()=>  document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1`,30000); 
+                            setTimeout(()=>document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1&mute=1`,3000); 
+                            setInterval(()=>  document.getElementById('bnrvdo1').src=`https://www.youtube.com/embed/${res.results[0].key}?autoplay=1&mute=1`,30000); 
                             const div=document.createElement('div');
                             div.innerHTML=` 
                                           <div class="banner-fadeTop"></div>
